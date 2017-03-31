@@ -1,4 +1,4 @@
-package beans;
+package linksGen.beans;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -16,6 +16,7 @@ public class Visiteur implements Serializable {
 	private String country;
 	private String os;
 	private Date visiteDate;
+	private Long idUrl;
 
 	public Visiteur() {
 	}
@@ -62,6 +63,16 @@ public class Visiteur implements Serializable {
 
 	public void setVisiteDate(Date visiteDate) {
 		this.visiteDate = visiteDate;
+	}
+
+
+	public Long getIdUrl() {
+		return idUrl;
+	}
+
+
+	public void setIdUrl(Long idUrl) {
+		this.idUrl = idUrl;
 	}
 
 }

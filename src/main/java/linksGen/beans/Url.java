@@ -1,4 +1,4 @@
-package beans;
+package linksGen.beans;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -11,23 +11,35 @@ import java.util.Date;
  */
 public class Url implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Long id;
 	private Date expiredDate;
 	private String longUrl;
 	private int maxUse;
 	private String password;
 	private String shortUrl;
-	private User user;
+	private Long  idUser;
 
 	public Url() {
 	}
 
 
-	public int getId() {
+	public Url(Long id, String longUrl, String shortUrl, String password, Date expiredDate, int maxUse, Long idUser) {
+		super();
+		this.id = id;
+		this.expiredDate = expiredDate;
+		this.longUrl = longUrl;
+		this.maxUse = maxUse;
+		this.password = password;
+		this.shortUrl = shortUrl;
+		this.idUser = idUser;
+	}
+
+
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -77,12 +89,12 @@ public class Url implements Serializable {
 
 
 	//bi-directional many-to-one association to User
-	public User getUser() {
-		return this.user;
+	public Long getidUser() {
+		return this.idUser;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setidUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 }

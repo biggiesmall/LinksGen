@@ -1,4 +1,4 @@
-package beans;
+package linksGen.beans;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -11,23 +11,33 @@ import java.util.List;
  */
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int id;
+	private Long id;
 	private String civilite;
 	private String email;
 	private String nom;
 	private String password;
 	private String prenom;
-	private List<Url> urls;
 
 	public User() {
 	}
 
 
-	public int getId() {
+	public User(Long id, String civilite, String email, String nom, String password, String prenom) {
+		super();
+		this.id = id;
+		this.civilite = civilite;
+		this.email = email;
+		this.nom = nom;
+		this.password = password;
+		this.prenom = prenom;
+	}
+
+
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -74,30 +84,6 @@ public class User implements Serializable {
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
-	}
-
-
-	//bi-directional many-to-one association to Url
-	public List<Url> getUrls() {
-		return this.urls;
-	}
-
-	public void setUrls(List<Url> urls) {
-		this.urls = urls;
-	}
-
-	public Url addUrl(Url url) {
-		getUrls().add(url);
-		url.setUser(this);
-
-		return url;
-	}
-
-	public Url removeUrl(Url url) {
-		getUrls().remove(url);
-		url.setUser(null);
-
-		return url;
 	}
 
 }
